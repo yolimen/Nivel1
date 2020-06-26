@@ -49,6 +49,7 @@ public class App
     		System.out.println("valor de variable b es mayor que a");
     	}	
     	
+    	
     	a = 10;
     	
     	if (a > 5 && a<10) {
