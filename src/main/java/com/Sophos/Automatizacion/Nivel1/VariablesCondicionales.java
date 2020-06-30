@@ -33,21 +33,16 @@ public class VariablesCondicionales {
 		   	String casoString = "Prueba Clase 3";  //
 		   	System.out.println (casoString.contains("z"));
 		   	
-		   		   			   	
-		   	int a = 19; 
+		   		   			 
+		   	int a = 5; 
+	    		    	
+	    	if (a >= 18) {
+	    		System.out.println ("Es una persona mayor de edad");
+	    	} else {
+	    		System.out.println("Es una persona menor de edad");
+	    	}	
 		    
-		    	
-		    if (a>=18) {
-		    	System.out.println ("La persona es mayor de edad");
-		    } else { if (a <18 ) {
-		    	System.out.println("La persona es menor de edad");
-		      }	
+	    }  
+	}  
+	 
 
-		    
-		    
-		    
-		   
-		    
-		  }
-	 }
-}

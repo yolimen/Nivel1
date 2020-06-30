@@ -61,7 +61,7 @@ public class App
     	   }
     	
     	
-    	String item = "31";
+    	String item = "1";
     	switch (item) {
     	case "1":
     		System.out.println ("Ingrese al caso 1");
