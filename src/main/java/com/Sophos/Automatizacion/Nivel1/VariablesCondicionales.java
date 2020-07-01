@@ -4,6 +4,10 @@ public class VariablesCondicionales {
 	
 	 public static void main ( String[] args )
 	    {
+	    
+		// public void variables[] {
+	   // }
+	    
 		 
 		    byte caso1Byte = 60;
 			byte caso2Byte = 38;
@@ -41,8 +45,8 @@ public class VariablesCondicionales {
 	    	} else {
 	    		System.out.println("Es una persona menor de edad");
 	    	}	
-		    
+		 }  
 	    }  
-	}  
-	 
+	
+
 
