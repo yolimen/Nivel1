@@ -13,6 +13,14 @@ import com.Sophos.Automatizacion.Nivel1Clase4.Edificacion;
 public class App {
 	public static void main(String[] args) {
 		
+		Drivers objDrivers = new Drivers();
+		objDrivers.navegadorGoogle();
+		objDrivers.navegadorFirefox();
+		objDrivers.navegadorExplorer();		
+	}
+	
+	public static void clase4 (){
+				
 		Vehiculo objVehiculo = new Vehiculo();
 		objVehiculo.getTipoFuenteEnergia();
 		Carro objCarro = new Carro();
@@ -60,6 +68,7 @@ public class App {
 	}
 
 	public void clase3() {
+		
 		System.out.println("Hello World");
 
 		byte casoByte = 65; // A
@@ -108,17 +117,17 @@ public class App {
 			System.out.println("El valor no está dentro de los rangos definidos");
 		}
 
-		String item = "1";
-		switch (item) {
-		case "1":
-			System.out.println("Ingrese al caso 1");
-			break;
-		case "2":
-			System.out.println("Ingrese al caso 2");
-			break;
+		//String paso = "1";
+		//switch (paso) {
+		//case "1":
+		//	System.out.println("Ingrese al caso 1");
+		//	break;
+		//case "2":
+		//	System.out.println("Ingrese al caso 2");
+		//	break;
 
-		default:
-			System.out.println("El otro item no existe");
+		//default:
+		//	System.out.println("El otro item no existe");
 
 		}
 
@@ -134,4 +143,4 @@ public class App {
 	
 	}
 
-}
+
