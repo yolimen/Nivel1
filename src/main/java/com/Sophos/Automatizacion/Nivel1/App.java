@@ -1,10 +1,15 @@
 package com.Sophos.Automatizacion.Nivel1;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
 import com.Sophos.Automatizacion.Nivel1.EjercicioClase4.Carro;
 import com.Sophos.Automatizacion.Nivel1.EjercicioClase4.Vehiculo;
 import com.Sophos.Automatizacion.Nivel1Clase4.Apartamentos;
 import com.Sophos.Automatizacion.Nivel1Clase4.Constantes;
 import com.Sophos.Automatizacion.Nivel1Clase4.Edificacion;
+import com.Sophos.Automatizacion.Nivel1Clase4.EntradasySalidas;
+import com.libreria.Libreria.Calculadora;
 
 /**
  * Hello world!
@@ -13,12 +18,49 @@ import com.Sophos.Automatizacion.Nivel1Clase4.Edificacion;
 public class App {
 	public static void main(String[] args) {
 		
+	  clase6();
+	  				
+	}
+	
+	public static void clase6() {
+		
+	EntradasySalidas io = new EntradasySalidas();
+	
+	System.out.println(io.lectorArchivoPlano());
+	
+	
+	String variable1 = io.lecturaConsola("Por favor digite el valor 1: ");
+	String variable2 = io.lecturaConsola("Por favor digite el valor 2: ");
+	Calculadora ObjCalculadora = new Calculadora();
+	
+	System.out.println("El resultado de la suma es: " 
+			+ ObjCalculadora.suma(Integer.parseInt(variable1), Integer.parseInt(variable2)));
+	
+	
+		
+		//WebDriver objWebDriver = new ChromeDriver()
+				
+//		Calculadora ObjCalculadora = new Calculadora();
+		
+	//	System.out.println(ObjCalculadora.suma(17, 9));
+	//	System.out.println(ObjCalculadora.resta(17, 9));
+	//	System.out.println(ObjCalculadora.multiplicacion(17, 9));
+	//	System.out.println(ObjCalculadora.division(17, 9));
+	//	System.out.println(ObjCalculadora.modulo(17, 9));
+		
+		
+	}
+	
+	
+	public static void clase7 () {
+
 		Drivers objDrivers = new Drivers();
 		objDrivers.navegadorGoogle();
 		objDrivers.navegadorFirefox();
 		objDrivers.navegadorExplorer();		
+
 	}
-	
+		
 	public static void clase4 (){
 				
 		Vehiculo objVehiculo = new Vehiculo();
