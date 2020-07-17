@@ -1,6 +1,10 @@
 package com.Sophos.Automatizacion.Nivel1;
 
+import java.util.ArrayList;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import com.Sophos.Automatizacion.Nivel1.EjercicioClase4.Carro;
@@ -18,9 +22,44 @@ import com.libreria.Libreria.Calculadora;
 public class App {
 	public static void main(String[] args) {
 		
-	  clase6();
-	  				
+		
+		
+		Drivers objDrivers = new Drivers();
+		objDrivers.lanzarNavegador("google");
+		objDrivers.navegarA("https://www.google.com");
+		WebElement cajaTexto = objDrivers.getDrivers().findElement(By.xpath("" 	
+		+ "//*[@id=\"tsf\"]/div[2]/div[1]/div[1]/div/div[2]/input"));
+		cajaTexto.sendKeys("Sophos Chronus");
+			
+	//	WebElement cajaTexto2 = objDrivers.getDrivers().findElement(By.name("q"));
+		//cajaTexto.clear();
+	//	cajaTexto.sendKeys(" Code");
+		
+	//	cajaTexto2.submit();
+		
+		//WebElement botonBuscar = objDrivers.getDrivers().findElement(By.name("btnK"));
+		//botonBuscar.click();
+		
+		try {
+			Thread.sleep(2000); //Este tiempo se describe en milisegundos
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+	//ArrayList<WebElement> listaElementos = (ArrayList<WebElement>) objDrivers.getDrivers()
+	//			.findElements(By.className("LC20lb DKV0Md"));
+	//	System.out.println("Se han encontrado " + listaElementos.size() + " elementos");
+		
+	//	try {
+	//		Thread.sleep(5000); //Este tiempo se describe en milisegundos
+	//	} catch (Exception e) {
+	//		// TODO: handle exception
+				
+	objDrivers.cierreNavegador();
+
 	}
+	
+	//clase6();
 	
 	public static void clase6() {
 		
@@ -55,10 +94,7 @@ public class App {
 	public static void clase7 () {
 
 		Drivers objDrivers = new Drivers();
-		objDrivers.navegadorGoogle();
-		objDrivers.navegadorFirefox();
-		objDrivers.navegadorExplorer();		
-
+		
 	}
 		
 	public static void clase4 (){

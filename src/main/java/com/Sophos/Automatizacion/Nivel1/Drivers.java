@@ -4,45 +4,64 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.ie.InternetExplorerOptions;
+
 
 public class Drivers {
 	
- WebDriver drivers;
+ private WebDriver drivers;
  
-	public Drivers() {
+ 	public Drivers() {
 		
 	}
-	
-	public void navegadorGoogle() {
-		String rutaDrivers = ".\\src\\main\\java\\resources\\Drivers\\chromedriver.exe";
-		System.setProperty("webdriver.chrome.driver",rutaDrivers);
-		drivers = new ChromeDriver();
-		drivers.get("https://www.google.com/");
-		drivers.close();
-	}
-	
-	public void navegadorFirefox () {
-		String rutaDrivers = ".\\src\\main\\java\\resources\\Drivers\\geckodriver.exe";
-		System.setProperty("webdriver.gecko.driver",rutaDrivers);
-		drivers = new FirefoxDriver ();
-		drivers.get("https://www.google.com/");
-		try {
-			Thread.sleep(5000);
-		}catch (InterruptedException e) {
-			//todo: handle exception
-		}
-		drivers.close();
-	}
-	
-	public void navegadorExplorer () {
-		String rutaDrivers = ".\\src\\main\\java\\resources\\Drivers\\IEDriverServer.exe";
-		System.setProperty("webdriver.ie.driver",rutaDrivers);
-		drivers = new InternetExplorerDriver();
-		drivers.get("https://www.google.com/");
-		
-		drivers.close();			
-				
-				
+ 
+	public WebDriver getDrivers() {
+	return drivers;
 	}
 
-}
+	public void setDrivers(WebDriver drivers) {
+		this.drivers = drivers;
+	}
+
+	
+	
+	public void lanzarNavegador (String navegador) {
+		navegador = navegador.toLowerCase(); //convertir todo a minúscula
+		
+	switch (navegador) {
+	case "google":
+		System.setProperty("webdriver.chrome.driver", "src\\main\\java\\resources\\Drivers\\chromedriver.exe");
+		drivers = new ChromeDriver();
+		break;
+			
+	case "firefox":
+		System.setProperty("webdriver.gecko.driver", "src\\main\\java\\resources\\Drivers\\geckodriver.exe");
+		drivers = new FirefoxDriver();
+		break;
+			
+	case "ie":
+		String rutaDrivers = ".\\src\\main\\java\\resources\\Drivers\\IEDriverServer.exe";
+		System.setProperty("webdriver.ie.driver",rutaDrivers);
+		InternetExplorerOptions options = new InternetExplorerOptions();
+		options.ignoreZoomSettings();
+		options.introduceFlakinessByIgnoringSecurityDomains();
+		options.enablePersistentHovering();
+		options.disableNativeEvents();
+				
+		drivers = new InternetExplorerDriver(options);
+		break;
+	default: 
+		System.out.println("El navegador seleccionado no está programado o no existe");
+		break;
+		}
+	} // método lanzar navegador
+	
+	public void navegarA (String url) {
+		drivers.get(url);
+	}
+	
+	public void cierreNavegador() {
+		drivers.close();
+	}		
+  }
+
