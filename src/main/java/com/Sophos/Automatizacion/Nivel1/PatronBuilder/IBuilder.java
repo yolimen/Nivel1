@@ -1,4 +1,4 @@
-package com.Sophos.Automatizacion.Nivel1;
+package com.Sophos.Automatizacion.Nivel1.PatronBuilder;
 
 public interface IBuilder {
 	

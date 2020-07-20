@@ -11,8 +11,14 @@ import org.openqa.selenium.remote.InterfaceImplementation;
 
 import com.Sophos.Automatizacion.Nivel1.EjercicioClase4.Carro;
 import com.Sophos.Automatizacion.Nivel1.EjercicioClase4.Vehiculo;
+import com.Sophos.Automatizacion.Nivel1.Factory.Animales;
+import com.Sophos.Automatizacion.Nivel1.Factory.Leon;
+import com.Sophos.Automatizacion.Nivel1.Factory.Vaca;
 import com.Sophos.Automatizacion.Nivel1.PageObject.VistaHomeMercadoLibre;
 import com.Sophos.Automatizacion.Nivel1.PageObject.vistaResultados;
+import com.Sophos.Automatizacion.Nivel1.PatronBuilder.BankAccount;
+import com.Sophos.Automatizacion.Nivel1.PatronBuilder.BankAccountBuilder;
+import com.Sophos.Automatizacion.Nivel1.Singleton.PatronSingleton;
 import com.Sophos.Automatizacion.Nivel1Clase4.Apartamentos;
 import com.Sophos.Automatizacion.Nivel1Clase4.Constantes;
 import com.Sophos.Automatizacion.Nivel1Clase4.Edificacion;
@@ -26,10 +32,23 @@ import com.libreria.Libreria.Calculadora;
 public class App {
 
 	public static void main(String[] args) {
-		App app = new App();
-		app.mercadoLibreClase11();
+
+		// Patrón Builder
+		// Se crea el builder new BankAccountBuilder(accountNumber) que por defecto
+		// necesita el número de cuenta
+		// porque es un valor indispensable. Luego se usa el builder y se envían los
+		// parametros uno por uno
+
+		BankAccountBuilder builder = new BankAccountBuilder(845l);
+
+		BankAccount bankAccount = builder.withBalance(1000.20).withOwner("Oaken").withRate(10.15).build();
+
+		System.out.println("Este es el nro. de cuenta: " + bankAccount);
 
 	}
+
+	// App app = new App();
+	// app.mercadoLibreClase11();
 
 	public void mercadoLibreClase11() {
 		Drivers objDriver = new Drivers();
@@ -39,33 +58,35 @@ public class App {
 		vistaHome.setTextAndLookFor("silla gamer");
 		vistaResultados resultados = new vistaResultados(objDriver.getDrivers());
 		resultados.seleccionePrimerElemento();
-				
+
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			// TODO: Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		objDriver.cierreNavegador();
 
 	}
 
-	// clase6();
+	public static void claseej10() {
+		Animales leon = new Leon();
+		Animales vaca = new Vaca();
+		System.out.println(leon.NombreAnimal());
+		System.out.println(vaca.NombreAnimal());
 
-	public static void clase10() {
-		// Patrón Builder
-		// Se crea el builder new BankAccountBuilder(accountNumber) que por defecto
-		// necesita el número de cuenta
-		// porque es un valor indispensable. Luego se usa el builder y se envían los
-		// parametros uno por uno
+		// WebDriver driver = new ChromeDriver();
 
-		BankAccountBuilder builder = new BankAccountBuilder(12345l);
+		PatronSingleton objSingleton = PatronSingleton.getInstancia("BD_1");
+		objSingleton.setNombreBaseDatos("BD_2");
+		System.out.println("Nombre base de datos: " + objSingleton.getNombreBaseDatos());
 
-		BankAccount bankAccount = builder.withBalance(1000.20).withOwner("Oaken").withRate(10.15).withType(BankAccountType.PLATINUM).build();
-
-		System.out.println(bankAccount);
+		PatronSingleton objSingleton2 = PatronSingleton.getInstancia("BD_1");
+		System.out.println("Nombre base de datos: " + objSingleton2.getNombreBaseDatos());
 	}
+
+	// clase6();
 
 	public static void clase9() {
 

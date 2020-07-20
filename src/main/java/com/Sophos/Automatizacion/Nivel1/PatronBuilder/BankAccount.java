@@ -1,20 +1,19 @@
-package com.Sophos.Automatizacion.Nivel1;
-
-//El propósito del patrón Builder es simplificar la creación de objetos que se consideran complejos.
-
-// Ej. Una clase que mantiene los datos de una cuenta bancaria
+package com.Sophos.Automatizacion.Nivel1.PatronBuilder;
 
 public class BankAccount {
 
+	//Definicion de variables
+	
 	private long accountNumber;
 	private String owner;
-	private BankAccountType type;
 	private double balance;
 	private double interestRate;
 
+	//Definición de constructor
 	public BankAccount() {
 	}
 
+	//Definición métodos getters and setters
 	public long getAccountNumber() {
 		return accountNumber;
 	}
@@ -29,14 +28,6 @@ public class BankAccount {
 
 	public void setOwner(String owner) {
 		this.owner = owner;
-	}
-
-	public BankAccountType getType() {
-		return type;
-	}
-
-	public void setType(BankAccountType type) {
-		this.type = type;
 	}
 
 	public double getBalance() {
@@ -56,3 +47,8 @@ public class BankAccount {
 	}
 
 }
+
+
+//El propósito del patrón Builder es simplificar la creación de objetos que se consideran complejos.
+
+//Ej. Una clase que mantiene los datos de una cuenta bancaria
