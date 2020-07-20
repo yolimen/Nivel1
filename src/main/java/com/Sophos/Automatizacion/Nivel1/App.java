@@ -1,11 +1,13 @@
 package com.Sophos.Automatizacion.Nivel1;
 
+import java.net.InterfaceAddress;
 import java.util.ArrayList;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.InterfaceImplementation;
 
 import com.Sophos.Automatizacion.Nivel1.EjercicioClase4.Carro;
 import com.Sophos.Automatizacion.Nivel1.EjercicioClase4.Vehiculo;
@@ -20,16 +22,30 @@ import com.libreria.Libreria.Calculadora;
  *
  */
 public class App {
+	
 	public static void main(String[] args) {
 		
-		EjercicioRandom objEjercicio = new EjercicioRandom();
-		objEjercicio.arregloPrimitivo();
-		
-	
+		BankAccountBuilder builder = new BankAccountBuilder(12345l);
+
+        BankAccount bankAccount = builder.withBalance(1000.20)
+                .withOwner("Oaken")
+                .withRate(10.15)
+                .withType(BankAccountType.PLATINUM)
+                .build();
+
+        System.out.println(bankAccount);
 
 	}
 	
 	//clase6();
+	
+	
+	
+	public static void clase9 () {
+
+		EjercicioRandom objEjercicio = new EjercicioRandom();
+		objEjercicio.arregloPrimitivo();
+	}
 	
 	public static void clase6() {
 		
