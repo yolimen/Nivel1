@@ -1,5 +1,8 @@
 package com.Sophos.Automatizacion.Nivel1;
 
+// En este ejemplo todos estos métodos que reciben los parámetros para crear el objeto empiezan con “with”. 
+// Cada método devuelve el builder.
+
 public class BankAccountBuilder implements IBuilder {
 
 	 	private long accountNumber; // Se pasará al constructor
@@ -16,7 +19,6 @@ public class BankAccountBuilder implements IBuilder {
 	        this.owner = owner;
 	        return this;  //Al devolver el constructor cada vez, se puede crear una interfaz fluida
 	    }
-	    
 	    
 	    public BankAccountBuilder withType(BankAccountType type){
 	        this.type = type;

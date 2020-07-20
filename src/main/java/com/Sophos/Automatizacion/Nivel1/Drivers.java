@@ -16,14 +16,19 @@ public class Drivers {
 	}
  
 	public WebDriver getDrivers() {
-	return drivers;
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO: Auto-generated catch block
+			e.printStackTrace();
+		}
+		return drivers;
 	}
 
 	public void setDrivers(WebDriver drivers) {
 		this.drivers = drivers;
 	}
 
-	
 	
 	public void lanzarNavegador (String navegador) {
 		navegador = navegador.toLowerCase(); //convertir todo a minúscula
