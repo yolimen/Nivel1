@@ -4,12 +4,14 @@ import java.net.InterfaceAddress;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import org.apache.commons.csv.CSVRecord;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.InterfaceImplementation;
 
+import com.Sophos.Automatizacion.Nivel1.ArchivoCSV.LecturaCSV;
 import com.Sophos.Automatizacion.Nivel1.ConsolaNumeroMayor.NumeroMayorConsola;
 import com.Sophos.Automatizacion.Nivel1.EjercicioClase4.Carro;
 import com.Sophos.Automatizacion.Nivel1.EjercicioClase4.Vehiculo;
@@ -36,10 +38,17 @@ import com.libreria.Libreria.Calculadora;
 public class App {
 
 	public static void main(String[] args) {
-		NumeroMayorConsola objNromayor = new NumeroMayorConsola();
-		objNromayor.numeroMayor();
 		
-	}
+		App app = new App();
+		app.mercadoLibreClase11();
+		
+		//LecturaCSV Lectura = new LecturaCSV();
+		//Lectura.leerContenidoCSV();
+		
+		
+	}	
+		
+	
 	
 
 	public void ejerciciosclase6 () {
@@ -92,14 +101,42 @@ public class App {
 	}else {
 		System.out.println("Es un número primo");
 	}
-    
+ 
+	//NUMERO MAYOR POR CONSOLA
+	NumeroMayorConsola objNromayor = new NumeroMayorConsola();
+	objNromayor.numeroMayor();
+		
 }
 
-	// App app = new App();
-	// app.mercadoLibreClase11();
 	
 
+	
 	public void mercadoLibreClase11() {
+		LecturaCSV lector = new LecturaCSV();
+		for (CSVRecord linea:lector.csvMercadoLibre("./Mercadolibre.csv")) {
+			Drivers objDriver = new Drivers();
+			objDriver.lanzarNavegador(linea.get("NAVEGADOR"));
+			objDriver.navegarA("https://www.mercadolibre.com.co/");
+			VistaHomeMercadoLibre vistaHome = new VistaHomeMercadoLibre(objDriver.getDrivers());
+			vistaHome.setTextAndLookFor(linea.get(1));
+			vistaResultados resultados = new vistaResultados(objDriver.getDrivers());
+			resultados.seleccionePrimerElemento();
+
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO: Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			objDriver.cierreNavegador();
+		
+		}
+	}
+	
+	
+	
+	public void mercadoLibreClase11A() {
 		Drivers objDriver = new Drivers();
 		objDriver.lanzarNavegador("google");
 		objDriver.navegarA("https://www.mercadolibre.com.co/");

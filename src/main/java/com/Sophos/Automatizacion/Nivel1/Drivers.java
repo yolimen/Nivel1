@@ -36,6 +36,7 @@ public class Drivers {
 	switch (navegador) {
 	case "google":
 		System.setProperty("webdriver.chrome.driver", "src\\main\\java\\resources\\Drivers\\chromedriver.exe");
+		drivers.manage().window().maximize();
 		drivers = new ChromeDriver();
 		break;
 			
